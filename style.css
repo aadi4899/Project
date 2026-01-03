@@ -1,0 +1,1628 @@
+/* ====================================================== */
+/* 1. SHARED BASE STYLES & COLOR PALETTE */
+/* ====================================================== */
+
+/* Color Palette & Base Styles */
+:root {
+    --gc-home-color-white: #FFFFFF;
+    --gc-home-color-light-grey: #F5F5F5; /* Main background secondary */
+    --gc-home-color-blue: #0A1931; /* Deep Navy Blue - Primary Accent */
+    --gc-home-color-gold: #FFC300; /* Warm Gold/Yellow - Highlight */
+    --gc-home-color-text-dark: #333333;
+    --gc-home-font-title: 'Montserrat', sans-serif;
+    --gc-home-font-body: 'Noto Sans', sans-serif;
+
+    /* Modern Shadows for Depth */
+    --gc-shadow-subtle: 0 4px 12px rgba(10, 25, 49, 0.08);
+    --gc-shadow-hover: 0 12px 25px rgba(10, 25, 49, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--gc-home-font-body);
+    line-height: 1.6;
+    color: var(--gc-home-color-text-dark);
+    background-color: var(--gc-home-color-white);
+}
+
+section {
+    padding: 80px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Common Typography Styles */
+.gc-home-section-title, .gc-about-section-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gc-home-color-blue);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.gc-home-section-subtitle, .gc-about-section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Consolidated color utility classes */
+.gc-home-blue, .gc-about-blue, .gc-services-blue, .gc-projects-blue {
+    color: var(--gc-home-color-blue);
+}
+
+/* ====================================================== */
+/* 2. MODERN LOOK & FEEL ENHANCEMENTS (Animations & Shadows) */
+/* ====================================================== */
+
+/* Animation 1: Fade-in for Body on Load */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+    animation: fadeIn 0.8s ease-out both;
+}
+
+/* Utility Class for Modern Hover Effect on Cards (Animation 2) */
+.gc-card-modern-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--gc-shadow-subtle);
+}
+
+.gc-card-modern-hover:hover {
+    transform: translateY(-5px); /* Subtle lift */
+    box-shadow: var(--gc-shadow-hover); /* Deeper shadow */
+}
+
+/* Utility Class for Subtle Parallax Background (Animation 3) */
+.gc-hero-parallax-bg {
+    background-attachment: fixed;
+    background-position: center top;
+}
+
+/* --- Utility Buttons (Used on All Pages) --- */
+.gc-home-gold-btn, .gc-home-blue-btn, .gc-home-cta-nav, .gc-home-hero-cta {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother transition */
+    font-size: 0.9rem;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.gc-home-gold-btn, .gc-home-hero-cta {
+    background-color: var(--gc-home-color-gold);
+    color: var(--gc-home-color-blue);
+    border: 2px solid var(--gc-home-color-gold);
+}
+
+.gc-home-gold-btn:hover, .gc-home-hero-cta:hover {
+    background-color: var(--gc-home-color-blue); /* Inverted hover for modern feel */
+    color: var(--gc-home-color-gold);
+    border-color: var(--gc-home-color-blue);
+}
+
+.gc-home-blue-btn, .gc-home-cta-nav {
+    background-color: var(--gc-home-color-blue);
+    color: var(--gc-home-color-white);
+    border: 2px solid var(--gc-home-color-blue);
+}
+
+.gc-home-blue-btn:hover, .gc-home-cta-nav:hover {
+    background-color: var(--gc-home-color-gold);
+    color: var(--gc-home-color-blue);
+    border-color: var(--gc-home-color-gold);
+}
+
+
+/* ====================================================== */
+/* 3. HEADER & FOOTER (Shared Styles) */
+/* ====================================================== */
+
+.gc-home-header {
+    background-color: var(--gc-home-color-white);
+    border-bottom: 1px solid var(--gc-home-color-light-grey);
+    color: var(--gc-home-color-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Added subtle shadow */
+}
+
+.gc-home-logo {
+    font-family: var(--gc-home-font-title);
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: var(--gc-home-color-blue);
+    transition: transform 0.3s;
+}
+
+.gc-home-logo:hover {
+    transform: scale(1.02);
+}
+
+.gc-home-logo-accent {
+    color: var(--gc-home-color-gold);
+}
+
+.gc-home-nav-link {
+    color: var(--gc-home-color-text-dark);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.gc-home-nav-link:hover {
+    color: var(--gc-home-color-gold);
+}
+
+/* Underline animation for modern navigation (Animation 4) */
+.gc-home-nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--gc-home-color-gold);
+    transition: width 0.3s ease;
+}
+
+.gc-home-nav-link:hover::after {
+    width: 100%;
+    left: 0;
+    background: var(--gc-home-color-gold);
+}
+
+.gc-home-nav-link.gc-home-current {
+    color: var(--gc-home-color-blue);
+    font-weight: 700;
+}
+
+/* Footer Styles */
+.gc-home-footer {
+    background-color: var(--gc-home-color-blue);
+    color: var(--gc-home-color-light-grey);
+    padding: 40px 5% 20px;
+    font-size: 1rem;
+}
+
+.gc-footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gc-footer-col h4 {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.2rem;
+    color: var(--gc-home-color-gold);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.gc-footer-col ul {
+    list-style: none;
+}
+
+.gc-footer-col a, .gc-footer-col p {
+    color: var(--gc-home-color-light-grey);
+    text-decoration: none;
+    line-height: 2.2;
+    transition: color 0.3s;
+}
+
+.gc-footer-col a:hover {
+    color: var(--gc-home-color-gold);
+}
+
+.gc-home-copyright {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ====================================================== */
+/* 4. HOME PAGE STYLES (gc-home-) */
+/* ====================================================== */
+
+/* --- 1. Hero Section --- */
+.gc-home-hero {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gc-home-color-light-grey);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 5%;
+    background-image: url('hero-bg.jpg'); /* Placeholder for image */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.gc-home-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.gc-home-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+}
+
+.gc-home-hero-title {
+    font-family: var(--gc-home-font-title);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--gc-home-color-blue);
+    /* Subtle load-in animation for hero title */
+    animation: slideUp 0.6s ease-out 0.2s backwards;
+}
+
+.gc-home-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 2rem;
+    color: var(--gc-home-color-text-dark);
+    /* Subtle load-in animation for hero subtitle */
+    animation: slideUp 0.6s ease-out 0.4s backwards;
+}
+
+.gc-home-hero-cta {
+    /* Uses general utility button style */
+    animation: slideUp 0.6s ease-out 0.6s backwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 3. Quick Facts/Stats Section --- */
+.gc-home-stats {
+    background-color: var(--gc-home-color-blue);
+    color: var(--gc-home-color-white);
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.gc-home-stats-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gc-home-stat-item {
+    flex-grow: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+.gc-home-stat-number {
+    font-family: var(--gc-home-font-title);
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--gc-home-color-gold);
+    margin-bottom: 5px;
+}
+
+.gc-home-stat-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--gc-home-color-light-grey);
+}
+
+
+/* --- 4. About Mantra Section --- */
+.gc-home-about-mantra {
+    background-color: var(--gc-home-color-white);
+}
+
+.gc-home-content-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.gc-home-about-text, .gc-home-about-image {
+    flex: 1;
+}
+
+.gc-home-about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--gc-shadow-subtle);
+}
+
+.gc-home-mantra-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--gc-home-color-gold);
+    margin: 20px 0;
+    border-left: 4px solid var(--gc-home-color-gold);
+    padding-left: 20px;
+    font-style: italic;
+}
+
+/* --- 5. Services Overview --- */
+.gc-home-services {
+    background-color: var(--gc-home-color-light-grey);
+}
+
+.gc-home-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.gc-home-service-card {
+    padding: 30px;
+    background-color: var(--gc-home-color-white);
+    border-radius: 8px;
+    text-align: center;
+    border-top: 4px solid var(--gc-home-color-blue);
+    transition: all 0.3s ease;
+}
+
+.gc-home-service-card:hover {
+    transform: translateY(-5px);
+    border-top-color: var(--gc-home-color-gold);
+    box-shadow: var(--gc-shadow-hover);
+}
+
+.gc-home-service-icon {
+    font-size: 3rem; /* Placeholder for icon */
+    color: var(--gc-home-color-gold);
+    margin-bottom: 15px;
+}
+
+.gc-home-service-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.3rem;
+    color: var(--gc-home-color-blue);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.gc-home-service-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* --- 6. Featured Projects --- */
+.gc-home-projects {
+    background-color: var(--gc-home-color-white);
+}
+
+.gc-home-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.gc-home-projects-card {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--gc-home-color-light-grey);
+    box-shadow: var(--gc-shadow-subtle);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gc-home-projects-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--gc-shadow-hover);
+}
+
+.gc-home-projects-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+    overflow: hidden;
+}
+
+.gc-home-projects-card:hover .gc-home-projects-image {
+    transform: scale(1.05);
+}
+
+.gc-home-projects-content {
+    padding: 20px;
+}
+
+.gc-home-projects-tag {
+    display: inline-block;
+    background-color: var(--gc-home-color-gold);
+    color: var(--gc-home-color-blue);
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.gc-home-projects-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.4rem;
+    color: var(--gc-home-color-blue);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.gc-home-projects-desc {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* --- 7. Testimonials/Trust (Snippet on Home) --- */
+.gc-home-testimonial {
+    background-color: var(--gc-home-color-light-grey);
+}
+
+.gc-home-testimonial-box {
+    background-color: var(--gc-home-color-white);
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: var(--gc-shadow-subtle);
+    text-align: left;
+}
+
+.gc-home-testimonial-box .gc-home-section-title {
+    text-align: left;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--gc-home-color-gold);
+    padding-left: 15px;
+    font-size: 1.8rem;
+}
+
+.gc-home-testimonial-quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--gc-home-color-text-dark);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.gc-home-testimonial-author {
+    font-weight: 700;
+    color: var(--gc-home-color-blue);
+    display: block;
+}
+
+.gc-home-testimonial-source {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* --- 8. Client Marquee (Snippet on Home & Testimonials) --- */
+.gc-home-clients {
+    padding: 40px 5%;
+    background-color: var(--gc-home-color-light-grey);
+    overflow: hidden;
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.gc-home-marquee-track {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+}
+
+.gc-home-marquee-content {
+    display: inline-block;
+    padding-right: 50px;
+}
+
+.gc-home-client-logo {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #AAAAAA;
+    margin: 0 40px;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.gc-home-client-logo:hover {
+    color: var(--gc-home-color-blue);
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+
+/* ====================================================== */
+/* 5. ABOUT PAGE STYLES (gc-about-) */
+/* ====================================================== */
+
+/* --- 1. Hero/Banner Section --- */
+.gc-about-hero {
+    position: relative;
+    height: 75vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--gc-home-color-white);
+}
+
+.gc-about-hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+}
+
+.gc-about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 2;
+}
+
+.gc-about-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+
+.gc-about-page-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.gc-about-tagline {
+    font-size: 1.5rem;
+    color: var(--gc-home-color-gold);
+    font-weight: 500;
+}
+
+/* --- 2. Story/Content Section --- */
+.gc-about-content-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.gc-about-text-block h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.gc-about-image-block img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--gc-shadow-subtle);
+}
+
+/* --- 3. Vision, Mission, Values (VMV) --- */
+.gc-about-vmv {
+    background-color: var(--gc-home-color-light-grey);
+}
+
+.gc-about-vmv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.gc-about-vmv-card {
+    padding: 30px;
+    background-color: var(--gc-home-color-white);
+    text-align: center;
+    border-radius: 8px;
+    border-bottom: 4px solid var(--gc-home-color-gold);
+    transition: all 0.3s ease;
+}
+
+.gc-about-vmv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--gc-shadow-hover);
+}
+
+.gc-about-vmv-icon {
+    font-size: 2.5rem;
+    color: var(--gc-home-color-blue);
+    margin-bottom: 15px;
+}
+
+.gc-about-vmv-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.5rem;
+    color: var(--gc-home-color-gold);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* --- 4. Leadership Section --- */
+.gc-about-leadership {
+    background-color: var(--gc-home-color-white);
+    text-align: center;
+}
+
+.gc-about-leader-card {
+    max-width: 400px;
+    margin: 40px auto 0;
+    text-align: center;
+}
+
+.gc-about-leader-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 5px solid var(--gc-home-color-light-grey);
+    box-shadow: var(--gc-shadow-subtle);
+}
+
+.gc-about-leader-name {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gc-home-color-blue);
+    margin-bottom: 5px;
+}
+
+.gc-about-leader-title {
+    font-size: 1rem;
+    color: var(--gc-home-color-gold);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.gc-about-leader-bio {
+    text-align: left;
+    font-size: 1.05rem;
+}
+
+/* --- 5. Timeline (History) --- */
+.gc-about-timeline-section {
+    background-color: var(--gc-home-color-light-grey);
+}
+
+.gc-about-timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+/* The vertical line in the middle */
+.gc-about-timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--gc-home-color-blue);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: 0;
+}
+
+.gc-about-timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+  .gc-about-timeline-item:nth-child(even) {
+        left: 0;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+/* The circle marker on the line */
+/* .gc-about-timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: -17px;
+    background-color: var(--gc-home-color-white);
+    border: 4px solid var(--gc-home-color-gold);
+    top: 25px;
+    border-radius: 50%;
+    z-index: 1;
+} */
+
+/* Right side items */
+.gc-about-timeline-item:nth-child(odd) {
+    left: 50%;
+}
+
+/* Left side items */
+.gc-about-timeline-item:nth-child(even) {
+    left: 0;
+    padding-right: 30px;
+}
+
+/* marker for left side */
+.gc-about-timeline-item:nth-child(even)::before {
+    left: -8px;
+    right: auto;
+}
+
+/* Date block styling */
+.gc-about-timeline-date {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    padding: 5px 0;
+    top: 15px;
+    z-index: 1;
+    background-color: var(--gc-home-color-blue);
+    color: var(--gc-home-color-white);
+    text-align: center;
+    font-weight: 600;
+    border-radius: 4px;
+    font-family: var(--gc-home-font-title);
+    animation: bounceIn 0.5s ease-out;
+}
+
+.gc-about-timeline-item:nth-child(odd) .gc-about-timeline-date {
+    left: -120px;
+}
+
+.gc-about-timeline-item:nth-child(even) .gc-about-timeline-date {
+    right: -120px;
+}
+
+.gc-about-timeline-content {
+    padding: 20px;
+    background-color: var(--gc-home-color-white);
+    position: relative;
+    border-radius: 6px;
+    box-shadow: var(--gc-shadow-subtle);
+    border-left: 3px solid var(--gc-home-color-gold);
+    transition: transform 0.3s ease;
+}
+
+.gc-about-timeline-content:hover {
+    transform: translateX(5px);
+}
+
+.gc-about-timeline-heading {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.2rem;
+    color: var(--gc-home-color-blue);
+    margin-bottom: 5px;
+}
+
+/* --- 6. Key Projects / Other Section (Snippet on About page) --- */
+.gc-about-key-projects {
+    background-color: var(--gc-home-color-white);
+    padding-top: 40px;
+}
+
+.gc-about-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.gc-about-project-item {
+    background-color: var(--gc-home-color-light-grey);
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 4px solid var(--gc-home-color-blue);
+    transition: all 0.3s ease;
+}
+
+.gc-about-project-item:hover {
+    border-left-color: var(--gc-home-color-gold);
+    box-shadow: 0 4px 10px rgba(10, 25, 49, 0.1);
+}
+
+.gc-about-project-year {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--gc-home-color-gold);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.gc-about-project-name {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.1rem;
+    color: var(--gc-home-color-blue);
+    margin-bottom: 5px;
+}
+
+/* ====================================================== */
+/* 6. SERVICES PAGE STYLES (gc-services-) */
+/* ====================================================== */
+
+/* --- 1. Hero/Banner Section --- */
+.gc-services-hero {
+    background-color: var(--gc-home-color-blue);
+    color: var(--gc-home-color-white);
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.gc-services-page-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.gc-services-tagline {
+    font-size: 1.5rem;
+    color: var(--gc-home-color-gold);
+    font-weight: 500;
+}
+
+/* --- 2. Core Services Grid --- */
+.gc-services-core {
+    background-color: var(--gc-home-color-white);
+}
+
+.gc-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.gc-services-card {
+    padding: 30px;
+    background-color: var(--gc-home-color-light-grey);
+    border: 1px solid var(--gc-home-color-light-grey);
+    border-radius: 8px;
+    box-shadow: var(--gc-shadow-subtle);
+    border-right: 4px solid var(--gc-home-color-gold);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gc-services-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--gc-shadow-hover);
+    border-right-color: var(--gc-home-color-blue);
+}
+
+.gc-services-icon {
+    font-size: 2.5rem;
+    color: var(--gc-home-color-blue);
+    margin-bottom: 15px;
+}
+
+.gc-services-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gc-home-color-blue);
+    margin-bottom: 10px;
+}
+
+.gc-services-card p {
+    color: #555;
+}
+
+/* --- 3. Key Expertise Row (Vertical List) --- */
+.gc-services-expertise {
+    background-color: var(--gc-home-color-light-grey);
+}
+
+.gc-services-expertise-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.gc-services-expertise-item {
+    flex: 1;
+    background-color: var(--gc-home-color-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--gc-shadow-subtle);
+    border-left: 3px solid var(--gc-home-color-blue);
+}
+
+.gc-services-expertise-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.gc-services-header-text {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--gc-home-color-gold);
+    margin-right: 15px;
+}
+
+.gc-services-header-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.4rem;
+    color: var(--gc-home-color-blue);
+    font-weight: 700;
+}
+
+/* --- 4. CTA: Commitment to Quality --- */
+.gc-services-cta {
+    background-color: var(--gc-home-color-blue);
+    color: var(--gc-home-color-white);
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.gc-services-cta-box {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gc-services-cta-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gc-home-color-white);
+    margin-bottom: 15px;
+}
+
+.gc-services-cta-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+
+/* ====================================================== */
+/* 7. PROJECTS PAGE STYLES (gc-projects-) */
+/* ====================================================== */
+
+/* --- 1. Hero/Banner Section --- */
+.gc-projects-hero {
+    background-color: var(--gc-home-color-blue);
+    color: var(--gc-home-color-white);
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.gc-projects-page-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.gc-projects-tagline {
+    font-size: 1.5rem;
+    color: var(--gc-home-color-gold);
+    font-weight: 500;
+}
+
+/* --- 2. Projects Grid --- */
+.gc-projects-list {
+    background-color: var(--gc-home-color-white);
+}
+
+.gc-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.gc-projects-card {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--gc-home-color-light-grey);
+    box-shadow: var(--gc-shadow-subtle);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gc-projects-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--gc-shadow-hover);
+}
+
+.gc-projects-image-placeholder {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.gc-projects-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gc-projects-card:hover .gc-projects-image-placeholder img {
+    transform: scale(1.05);
+}
+
+.gc-projects-content {
+    padding: 25px;
+}
+
+.gc-projects-year {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.gc-projects-gold-text {
+    color: var(--gc-home-color-gold);
+}
+
+.gc-projects-name {
+    font-family: var(--gc-home-font-title);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gc-home-color-blue);
+    margin-bottom: 10px;
+}
+
+.gc-projects-desc {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.gc-projects-detail-link {
+    color: var(--gc-home-color-gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.gc-projects-detail-link:hover {
+    color: var(--gc-home-color-blue);
+}
+
+
+/* ====================================================== */
+/* 8. TESTIMONIALS/TRUST PAGE STYLES (gc-trust-) */
+/* ====================================================== */
+
+.gc-trust-section {
+    padding: 80px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- 1. Hero Section --- */
+.gc-trust-hero {
+    background-color: var(--gc-home-color-blue);
+    color: var(--gc-home-color-white);
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.gc-trust-page-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.gc-trust-tagline {
+    font-size: 1.5rem;
+    color: var(--gc-home-color-gold);
+    font-weight: 500;
+}
+
+/* --- 2. Testimonial Grid --- */
+.gc-testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.gc-testimonial-card {
+    background-color: var(--gc-home-color-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--gc-shadow-subtle);
+    border-top: 4px solid var(--gc-home-color-gold);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gc-testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--gc-shadow-hover);
+}
+
+.gc-testimonial-critical {
+    /* Critical project testimonial emphasis */
+    border-top-color: var(--gc-home-color-blue);
+}
+
+.gc-testimonial-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.gc-testimonial-quote::before {
+    content: "\201C"; /* Left double quotation mark */
+    font-size: 3rem;
+    color: var(--gc-home-color-gold);
+    position: absolute;
+    top: 0px;
+    left: -5px;
+    line-height: 0;
+    opacity: 0.3;
+}
+
+.gc-testimonial-author {
+    font-family: var(--gc-home-font-title);
+    font-weight: 700;
+    color: var(--gc-home-color-blue);
+    display: block;
+    margin-top: 10px;
+}
+
+.gc-testimonial-title {
+    font-size: 0.9rem;
+    color: #999;
+    display: block;
+}
+
+
+/* ====================================================== */
+/* 9. CONTACT PAGE STYLES (gc-contact-) */
+/* ====================================================== */
+
+/* --- 1. Hero/Banner Section (Shared with other pages) --- */
+.gc-contact-hero {
+    background-color: var(--gc-home-color-blue);
+    color: var(--gc-home-color-white);
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.gc-contact-page-title {
+    font-family: var(--gc-home-font-title);
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.gc-contact-tagline {
+    font-size: 1.5rem;
+    color: var(--gc-home-color-gold);
+    font-weight: 500;
+}
+
+/* --- 2. Contact Form & Info --- */
+.gc-contact-section {
+    background-color: var(--gc-home-color-white);
+}
+
+.gc-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    margin-top: 40px;
+    align-items: flex-start;
+}
+
+.gc-contact-title-left {
+    text-align: left !important;
+    margin-bottom: 10px;
+}
+
+.gc-contact-info-block {
+    padding: 20px 0;
+}
+
+.gc-contact-info-text {
+    font-size: 1.05rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.gc-contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.gc-contact-icon {
+    font-size: 1.5rem;
+    color: var(--gc-home-color-gold);
+    margin-right: 15px;
+    min-width: 20px;
+}
+
+.gc-contact-text strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--gc-home-color-blue);
+    margin-bottom: 5px;
+}
+
+.gc-contact-text a {
+    color: var(--gc-home-color-text-dark);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.gc-contact-text a:hover {
+    color: var(--gc-home-color-blue);
+}
+
+/* Form Styles */
+.gc-contact-form form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px;
+    background-color: var(--gc-home-color-light-grey);
+    border-radius: 8px;
+    box-shadow: var(--gc-shadow-subtle);
+}
+
+.gc-contact-form input[type="text"],
+.gc-contact-form input[type="email"],
+.gc-contact-form input[type="tel"],
+.gc-contact-form select,
+.gc-contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: var(--gc-home-font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.gc-contact-form input:focus,
+.gc-contact-form select:focus,
+.gc-contact-form textarea:focus {
+    border-color: var(--gc-home-color-gold);
+    box-shadow: 0 0 0 2px rgba(255, 195, 0, 0.2);
+    outline: none;
+}
+
+.gc-contact-form textarea {
+    resize: vertical;
+}
+
+.gc-contact-submit {
+    /* Uses utility button style */
+    width: 100%;
+    text-align: center;
+    border: none !important;
+}
+
+/* --- 3. Map Section --- */
+.gc-contact-map {
+    background-color: var(--gc-home-color-light-grey);
+    padding-bottom: 80px;
+}
+
+.gc-map-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: #e9ecef;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6c757d;
+    font-size: 1.2rem;
+    box-shadow: var(--gc-shadow-subtle);
+}
+
+
+/* ====================================================== */
+/* 10. RESPONSIVENESS (Media Queries for All Pages) */
+/* ====================================================== */
+
+/* Tablet and smaller desktops */
+@media (max-width: 1024px) {
+    /* Shared */
+    section {
+        padding: 60px 5%;
+    }
+
+    .gc-home-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .gc-home-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .gc-home-cta-nav {
+        margin-top: 10px;
+    }
+
+    /* Home Fixes */
+    .gc-home-hero-title {
+        font-size: 3rem;
+    }
+    .gc-home-stats-grid {
+        flex-direction: column;
+    }
+    .gc-home-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .gc-home-about-image {
+        order: -1;
+    }
+    .gc-home-about-text .gc-home-section-title {
+        text-align: center;
+    }
+
+    /* About Fixes */
+    .gc-about-content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .gc-about-image-block {
+        order: -1;
+    }
+    .gc-about-text-block h2 {
+        text-align: center;
+    }
+    .gc-about-vmv-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .gc-about-timeline::after {
+        left: 30px;
+    }
+    .gc-about-timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 15px;
+    }
+    .gc-about-timeline-item::before {
+        left: 23px;
+        right: auto;
+    }
+    .gc-about-timeline-item:nth-child(even) {
+        left: 0;
+        padding-left: 50px;
+        padding-right: 15px;
+    }
+    .gc-about-timeline-item:nth-child(odd) {
+    left: 0%;
+}
+    .gc-about-timeline-item:nth-child(odd)::before {
+        left: 23px;
+        right: auto;
+    }
+    .gc-about-timeline-item:nth-child(odd) .gc-about-timeline-date,
+    .gc-about-timeline-item:nth-child(even) .gc-about-timeline-date {
+        left: 110px;
+        right: auto;
+        width: 80px;
+        font-size: 0.8rem;
+    }
+    .gc-about-timeline-content:hover {
+        transform: none;
+    }
+
+    /* Contact Fixes */
+    .gc-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Services & Projects Fixes (Shared Hero) */
+    .gc-services-page-title, .gc-projects-page-title, .gc-trust-page-title, .gc-about-page-title, .gc-contact-page-title {
+        font-size: 3rem;
+    }
+    .gc-services-expertise-row {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .gc-services-card:hover {
+        transform: none;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    /* Shared */
+    section {
+        padding: 40px 3%;
+    }
+    .gc-home-section-title {
+        font-size: 2rem;
+    }
+    .gc-home-nav {
+        display: none;
+    }
+
+    /* Hero Fixes */
+    .gc-home-hero {
+        min-height: 60vh;
+    }
+    .gc-home-hero-title, .gc-services-page-title, .gc-projects-page-title, .gc-trust-page-title, .gc-about-page-title, .gc-contact-page-title {
+        font-size: 2.5rem;
+    }
+    .gc-home-hero-subtitle {
+        font-size: 1rem;
+    }
+
+    /* About Fixes */
+    .gc-about-tagline {
+        font-size: 1.2rem;
+    }
+    .gc-about-vmv-grid {
+        grid-template-columns: 1fr;
+    }
+    .gc-about-timeline::after {
+        left: 20px;
+    }
+    .gc-about-timeline-item {
+        padding-left: 50px;
+        padding-right: 15px;
+    }
+    .gc-about-timeline-item::before {
+        left: 13px;
+    }
+    .gc-about-timeline-item:nth-child(even)::before {
+        left: 13px;
+    }
+    .gc-about-timeline-item:nth-child(odd) .gc-about-timeline-date,
+    .gc-about-timeline-item:nth-child(even) .gc-about-timeline-date {
+        left: 30px;
+        top: 0;
+    }
+    .gc-about-timeline-content {
+        padding-top: 40px;
+    }
+
+    /* Footer Fixes */
+    .gc-footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .gc-footer-col h4 {
+        margin-top: 20px;
+    }
+}
+
+
+
+
+
+
+/* ------------------------------------------------------
+ */
+
+ /* =====================================================
+   HEADER
+===================================================== */
+.gc-home-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 16px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gc-home-logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.gc-home-logo-accent {
+  color: #0b3c5d;
+  margin-left: 4px;
+}
+
+.gc-home-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.gc-home-nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+}
+
+.gc-home-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #0b3c5d;
+  transition: width 0.3s ease;
+}
+
+.gc-home-nav-link:hover::after,
+.gc-home-current::after {
+  width: 100%;
+}
+
+.gc-home-cta-nav {
+  background: #0b3c5d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
