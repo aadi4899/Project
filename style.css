@@ -131,74 +131,6 @@ section {
 /* 3. HEADER & FOOTER (Shared Styles) */
 /* ====================================================== */
 
-.gc-home-header {
-    background-color: var(--gc-home-color-white);
-    border-bottom: 1px solid var(--gc-home-color-light-grey);
-    color: var(--gc-home-color-blue);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Added subtle shadow */
-}
-
-.gc-home-logo {
-    font-family: var(--gc-home-font-title);
-    font-weight: 900;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    color: var(--gc-home-color-blue);
-    transition: transform 0.3s;
-}
-
-.gc-home-logo:hover {
-    transform: scale(1.02);
-}
-
-.gc-home-logo-accent {
-    color: var(--gc-home-color-gold);
-}
-
-.gc-home-nav-link {
-    color: var(--gc-home-color-text-dark);
-    text-decoration: none;
-    margin-left: 1.5rem;
-    font-weight: 500;
-    position: relative;
-    transition: color 0.3s;
-}
-
-.gc-home-nav-link:hover {
-    color: var(--gc-home-color-gold);
-}
-
-/* Underline animation for modern navigation (Animation 4) */
-.gc-home-nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    display: block;
-    margin-top: 5px;
-    right: 0;
-    background: var(--gc-home-color-gold);
-    transition: width 0.3s ease;
-}
-
-.gc-home-nav-link:hover::after {
-    width: 100%;
-    left: 0;
-    background: var(--gc-home-color-gold);
-}
-
-.gc-home-nav-link.gc-home-current {
-    color: var(--gc-home-color-blue);
-    font-weight: 700;
-}
-
 /* Footer Styles */
 .gc-home-footer {
     background-color: var(--gc-home-color-blue);
@@ -580,7 +512,7 @@ section {
 /* --- 1. Hero/Banner Section --- */
 .gc-about-hero {
     position: relative;
-    height: 75vh;
+    height: 110vh;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -1568,15 +1500,16 @@ section {
    HEADER
 ===================================================== */
 .gc-home-header {
-  position: sticky;
-  top: 0;
+  position: relative;
+  /* top: 0; */
   z-index: 1000;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
+  background: transparent;
+  /* border-bottom: 1px solid #e5e5e5; */
   padding: 16px 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: -10%;
 }
 
 .gc-home-logo {
@@ -1597,7 +1530,7 @@ section {
 
 .gc-home-nav-link {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
   font-weight: 500;
   position: relative;
 }
@@ -1619,10 +1552,11 @@ section {
 }
 
 .gc-home-cta-nav {
-  background: #0b3c5d;
+  background: #004a7c5c;
   color: #fff;
   border: none;
   padding: 10px 20px;
   font-weight: 600;
   cursor: pointer;
+  border-radius: 20px;
 }
