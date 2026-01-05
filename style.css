@@ -825,10 +825,12 @@ section {
 
 /* --- 1. Hero/Banner Section --- */
 .gc-services-hero {
-    background-color: var(--gc-home-color-blue);
+    background-color: #161a21;
     color: var(--gc-home-color-white);
     padding: 100px 5%;
     text-align: center;
+    height: 70vh;
+    margin-top: 10%;
 }
 
 .gc-services-page-title {
@@ -965,10 +967,13 @@ section {
 
 /* --- 1. Hero/Banner Section --- */
 .gc-projects-hero {
-    background-color: var(--gc-home-color-blue);
+    background-color: #161a21;
     color: var(--gc-home-color-white);
     padding: 100px 5%;
     text-align: center;
+    height: 70vh;
+    margin-top: 20%;
+
 }
 
 .gc-projects-page-title {
@@ -1082,10 +1087,12 @@ section {
 
 /* --- 1. Hero Section --- */
 .gc-trust-hero {
-    background-color: var(--gc-home-color-blue);
+    background-color: #161a21;
     color: var(--gc-home-color-white);
     padding: 100px 5%;
     text-align: center;
+        height: 70vh;
+    margin-top: 20%;
 }
 
 .gc-trust-page-title {
@@ -1169,10 +1176,12 @@ section {
 
 /* --- 1. Hero/Banner Section (Shared with other pages) --- */
 .gc-contact-hero {
-    background-color: var(--gc-home-color-blue);
+    background-color: #161a21;
     color: var(--gc-home-color-white);
     padding: 100px 5%;
     text-align: center;
+        height: 70vh;
+    margin-top: 20%;
 }
 
 .gc-contact-page-title {
@@ -1415,7 +1424,7 @@ section {
 
     /* Services & Projects Fixes (Shared Hero) */
     .gc-services-page-title, .gc-projects-page-title, .gc-trust-page-title, .gc-about-page-title, .gc-contact-page-title {
-        font-size: 3rem;
+        font-size: 2rem;
     }
     .gc-services-expertise-row {
         flex-direction: column;
@@ -1504,7 +1513,7 @@ section {
   position: relative;
   /* top: 0; */
   z-index: 1000;
-  background: transparent;
+  background: #161a21;
   /* border-bottom: 1px solid #e5e5e5; */
   padding: 16px 60px;
   display: flex;
