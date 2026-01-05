@@ -1522,6 +1522,9 @@ section {
   margin-bottom: -10%;
 }
 
+.about-body .gc-home-header{
+    background: transparent;
+}
 .gc-home-logo {
   font-size: 20px;
   font-weight: 700;
