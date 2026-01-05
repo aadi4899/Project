@@ -394,10 +394,13 @@ body {
    RESPONSIVE
 ===================================================== */
 @media (max-width: 1024px) {
-  .gc-home-stats-grid,
+
   .gc-home-services-grid,
   .gc-home-projects-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .gc-home-stats-grid{
+        grid-template-columns: repeat(2, auto);
   }
 
   .gc-home-content-wrapper {
@@ -423,14 +426,17 @@ body {
   }
 
   .gc-home-stats-grid{
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, auto);
 
   }
   .gc-home-services-grid,
   .gc-home-projects-grid {
- grid-template-columns: repeat(2, auto);
+ grid-template-columns: 1fr;
   }
 
+  .gc-home-hero{
+    height: 98vh;
+  }
   .gc-home-about-mantra,
   .gc-home-services,
   .gc-home-projects,
