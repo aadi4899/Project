@@ -407,9 +407,10 @@ body {
 
 @media (max-width: 768px) {
   .gc-home-header {
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 15px;
     padding: 20px;
+    margin-bottom: -20%;
   }
 
   .gc-home-nav {
@@ -512,6 +513,7 @@ body {
 @media (max-width: 768px) {
   .gc-home-header {
     padding: 16px 24px;
+            margin-bottom: -20%;
   }
 
   .gc-home-nav {

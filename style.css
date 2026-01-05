@@ -1324,8 +1324,9 @@ section {
     }
 
     .gc-home-header {
-        flex-direction: column;
+        /* flex-direction: column; */
         gap: 10px;
+        margin-bottom: -20%;
     }
 
     .gc-home-nav {
@@ -1584,6 +1585,7 @@ section {
 @media (max-width: 768px) {
   .gc-home-header {
     padding: 16px 24px;
+    margin-bottom: -20%;
   }
 
   .gc-home-nav {
