@@ -447,10 +447,11 @@ body {
 
 /* Footer Styles */
 .gc-home-footer {
-    background-color: var(--gc-home-color-blue);
-    color: var(--gc-home-color-light-grey);
+    background-color: #0a1931;
+    color: #fff;
     padding: 40px 5% 20px;
     font-size: 1rem;
+    text-align: left;
 }
 
 .gc-footer-container {
